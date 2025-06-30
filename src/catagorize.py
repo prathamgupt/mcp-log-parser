@@ -24,16 +24,16 @@ def determine_category(log):
         return "Normal"
 
 @mcp.tool(description="Categorizes a list of parsed logs based on status and message")
-"""
-Categorizes a list of parsed logs based on status and message.
-
-Args:
-    logs (list[dict]): A list of parsed log dictionaries.
-
-Returns:
-    list[dict]: A list of parsed log dictionaries with an additional "category" field.
-"""
 def catagorize(logs: list[dict]) -> list[dict]:
+    """
+    Categorizes a list of parsed logs based on status and message.
+
+    Args:
+        logs (list[dict]): A list of parsed log dictionaries.
+
+    Returns:
+        list[dict]: A list of parsed log dictionaries with an additional "category" field.
+    """
     for log in logs:
         log["category"] = determine_category(log)
     return logs
